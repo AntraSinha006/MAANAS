@@ -1,0 +1,61 @@
+MAANAS - HOW TO RUN (step by step, Windows)
+===========================================
+
+STEP 1 - Install Node.js (only once)
+  1. Go to https://nodejs.org
+  2. Download the "LTS" version (22 or newer) and install it (keep clicking Next).
+  3. To check: open Command Prompt and type   node --version
+     You should see v22.x or higher.
+
+STEP 2 - Copy / unzip the project
+  1. Unzip "MAHI PROJECT.zip" anywhere, for example to your Desktop or D:\
+  2. You should now have a folder "MAHI PROJECT" containing:  backend, frontend, README.md
+
+STEP 3 - Open a terminal in the backend folder
+  Option A (VS Code):  File > Open Folder > select "MAHI PROJECT".
+                       Terminal > New Terminal, then type:   cd backend
+  Option B (Explorer): open the "MAHI PROJECT\backend" folder, click the address bar,
+                       type  cmd  and press Enter.
+
+STEP 4 - Install packages (only the first time)
+  Type:   npm install
+  Wait until it finishes (needs internet, takes ~1 minute).
+
+STEP 5 - Start the app
+  Type:   npm start
+  You will see:  "MAANAS is running: http://localhost:3000"
+  KEEP THIS WINDOW OPEN while using the app. (Press Ctrl + C to stop it.)
+  If Windows Firewall asks, click "Allow".
+
+STEP 6 - Open the website
+  Open Chrome/Edge and go to:   http://localhost:3000
+  On a phone (same Wi-Fi): use the second address printed in the terminal,
+  e.g. http://192.168.x.x:3000
+
+STEP 7 - Log in with a demo account (or sign up yourself)
+  User       demo@maanas.app    / demo1234
+  Therapist  aanya@maanas.app   / therapist123
+  Admin      admin@maanas.app   / admin1234
+  When you sign up, the 6-digit email code is shown on screen (no real email is sent).
+
+TRY THE FULL FLOW
+  1. Log in as User -> "Mind check" -> answer questions -> do the focus task -> see results.
+  2. Click a recommended therapist -> pick day & time -> Request session -> Pay (demo) -> send a message.
+  3. Log out -> log in as Therapist (aanya@maanas.app) -> Dashboard -> open the request -> Accept -> reply.
+  4. Log in as Admin -> approve the pending therapist (Neha Verma).
+
+USEFUL COMMANDS (inside the backend folder)
+  npm start       start the app
+  npm run dev     start + auto-restart when you edit code
+  npm test        run the automated tests
+  npm run seed    reset all data back to the demo data (then npm start again)
+
+PROBLEMS?
+  "npm is not recognized"     -> Node.js is not installed; do Step 1, then reopen the terminal.
+  "Cannot find module ..."    -> you forgot Step 4 (npm install) or you are not in the backend folder.
+  "EADDRINUSE :3000"          -> the app is already running in another window; close it or use that one.
+  "node:sqlite" error         -> Node.js is too old; install version 22 or newer.
+  Page does not open on phone -> phone and laptop must be on the same Wi-Fi; allow Node in the firewall.
+
+NOTE: Student prototype. Therapists are fictional; payments, email codes and video are demo versions.
+The ML model plugs into backend\src\services\scoringModel.js (see README.md).
