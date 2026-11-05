@@ -29,7 +29,7 @@ export function toAssessment(row) {
 router.get('/questions', (_req, res) => {
   res.json({
     scale: SCALE,
-    timeframe: 'Over the last 2 weeks, how often have you experienced the following?',
+    timeframe: 'Answer as honestly as you can — there are no right or wrong choices.',
     sections: SECTIONS.map(({ key, title, intro, items }) => ({ key, title, intro, items })),
     safetyItem: SAFETY_ITEM,
     minAnswers: MIN_ANSWERS,

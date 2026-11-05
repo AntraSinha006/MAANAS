@@ -82,7 +82,7 @@ export async function assessmentView() {
     const bar = $('#assess-bar', root);
 
     const questionHtml = (item) => `<fieldset class="wellbeing-question"><legend>${esc(item.text)}</legend>
-      <div class="answer-options four">${bank.scale.map((opt) => `<label class="answer-option"><input type="radio" name="${item.id}" value="${opt.value}" ${state.answers[item.id] === opt.value ? 'checked' : ''}><span>${esc(opt.label)}</span></label>`).join('')}</div></fieldset>`;
+      <div class="answer-options four">${(item.options || bank.scale).map((opt) => `<label class="answer-option"><input type="radio" name="${item.id}" value="${opt.value}" ${state.answers[item.id] === opt.value ? 'checked' : ''}><span>${esc(opt.label)}</span></label>`).join('')}</div></fieldset>`;
 
     const nav = (nextLabel = 'Next') => `<div class="assess-nav">
       ${state.step > 0 ? '<button type="button" class="btn btn-quiet" data-back>← Back</button>' : '<span></span>'}
@@ -94,7 +94,7 @@ export async function assessmentView() {
       if (step.kind === 'intro') {
         body.innerHTML = `<h2 class="section-title">Before you start</h2>
           <ul class="calm-list">
-            <li>About 20 questions on mood, worry, overthinking, sleep, focus and connection, then a 30-second focus task.</li>
+            <li>20 questions about how you see the world, yourself, others, the future, your thoughts and inner experience — then a short focus task.</li>
             <li>${esc(bank.timeframe)}</li>
             <li>You can skip any question. Answer at least ${bank.minAnswers} for a useful summary.</li>
             <li>Your results are private to you. You choose whether to share them with a therapist when you book.</li>
