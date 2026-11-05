@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# SQLite database (Railway will use a persistent Volume instead)
+backend/data/*.db
+backend/data/*.db-wal
+backend/data/*.db-shm
+
+# Environment secrets
+backend/.env
+
+# OS
+.DS_Store
+Thumbs.db
